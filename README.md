@@ -8,7 +8,7 @@ This game is very similar to what you might find in codewithharry youtube channe
 4. Mouse click support for starting the game as well as  bouncing the bird.
 
 Game description:
-                This is a simple way to create a flappy flight game using Pygame library in Python, it involeves blitting of images, changing coordinates of the images to make it look interactive and manipulating speed of change in coordinates to provide difficulty to the game. 
+                This is a simple way to create a flappy flight game using Pygame library in Python, it involves blitting of images, changing coordinates of the images to make it look interactive and manipulating speed of change in coordinates to provide difficulty to the game. 
                 
 To see how it works and to learn how code works please check https://youtube.com/codewithharry or https://youtu.be/itB6VsP5UnA
 
