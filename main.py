@@ -5,7 +5,7 @@ from pygame.locals import * # Basic pygame imports
 
 # Global Variables for the game
 score=0
-FPS = 45
+FPS = 40
 SCREENWIDTH = 289
 SCREENHEIGHT = 511
 SCREEN = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT))
@@ -76,7 +76,7 @@ def mainGame():
     playerFlapAccv = -8 # velocity while flapping
     playerFlapped = False # It is true only when the bird is flapping
 
-
+    gamespeed=abs(pipeVelX)
     while True:
         
     
@@ -102,7 +102,7 @@ def mainGame():
         #check for score
         playerMidPos = playerx + GAME_SPRITES['player'].get_width()/2
 
-        gamespeed=4
+        
 
         for pipe in upperPipes:
             pipeMidPos = pipe['x'] + GAME_SPRITES['pipe'][0].get_width()/2
@@ -116,6 +116,7 @@ def mainGame():
                 if score%5==0:
                     gamespeed+=1
                     pipeVelX= -gamespeed
+                    
                 
                 
 
@@ -135,7 +136,7 @@ def mainGame():
             lowerPipe['x'] += pipeVelX
 
         # Add a new pipe when the first is about to cross the leftmost part of the screen
-        if 0<upperPipes[0]['x']<5:
+        if 0<upperPipes[0]['x']<gamespeed+1:
             newpipe = getRandomPipe()
             upperPipes.append(newpipe[0])
             lowerPipes.append(newpipe[1])
