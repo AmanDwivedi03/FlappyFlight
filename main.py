@@ -33,7 +33,7 @@ def welcomeScreen():
                 pygame.quit()
                 sys.exit()
 
-            # If the user presses space or up key, start the game for them
+            # If the user presses leftmousebutton,space or up key, start the game for them
             elif (event.type==KEYDOWN and (event.key==K_SPACE or event.key == K_UP)) or event.type == pygame.MOUSEBUTTONDOWN:
                 return
             else:
@@ -84,6 +84,7 @@ def mainGame():
             if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 pygame.quit()
                 sys.exit()
+            #Clicking space, key up or leftmousebutton increases velocity of bird in Y direction
             if (event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP)) or event.type == pygame.MOUSEBUTTONDOWN:
                 if playery > 0:
                     playerVelY = playerFlapAccv
@@ -93,7 +94,7 @@ def mainGame():
 
         crashTest = isCollide(playerx, playery, upperPipes, lowerPipes) # This function will return true if the player is crashed
         if crashTest:
-            SCREEN.blit(GAME_SPRITES['gameover'],(50,(SCREENHEIGHT-GAME_SPRITES['gameover'].get_height())/2-30))
+            SCREEN.blit(GAME_SPRITES['gameover'],(50,(SCREENHEIGHT-GAME_SPRITES['gameover'].get_height())/2-30))#blits gameover image if crashed
             pygame.display.update()
             
             return     
@@ -111,6 +112,7 @@ def mainGame():
                 score +=1                             
                 print(f"Your score is {score}") 
                 GAME_SOUNDS['point'].play()
+                #increasing gamespeed each time a player reaches a score in multiple of 5
                 if score%5==0:
                     gamespeed+=1
                     pipeVelX= -gamespeed
